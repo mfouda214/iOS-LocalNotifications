@@ -53,6 +53,7 @@ class NotificationsViewController: UIViewController {
         content.body = "You have 5 overdue tasks"
         content.sound = UNNotificationSound.default()
         content.badge = 5
+        content.categoryIdentifier = "OverdueTasksCategory"
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
         

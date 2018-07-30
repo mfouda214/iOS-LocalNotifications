@@ -19,6 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UNUserNotificationCenter.current().delegate = self
         
+        let viewAction = UNNotificationAction(identifier: "ViewTasksAction", title: "View Tasks", options: [.foreground])
+        let snoozeAction = UNNotificationAction(identifier: "SnoozeTasksAction", title: "Snooze", options: [])
+        
+        let category = UNNotificationCategory(identifier: "OverdueTasksCategory",
+                                              actions: [viewAction, snoozeAction],
+                                              intentIdentifiers: [],
+                                              options: [])
+        
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        
         return true
     }
 
@@ -52,5 +62,16 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     //MARK: - This Method will be called each time a notification is delivered while the app is in the foreground
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        if response.actionIdentifier == "ViewTasksAction" {
+            print("Tapped view tasks.")
+        } else if response.actionIdentifier == "SnoozeTasksAction" {
+            print("Tapped snooze.")
+        }
+        
+        completionHandler()
     }
 }
