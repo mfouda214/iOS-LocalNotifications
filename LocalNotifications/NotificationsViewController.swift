@@ -32,7 +32,19 @@ class NotificationsViewController: UIViewController {
     }
     
     @IBAction func checkNotificationsAuthorizationStatus(_ sender: Any) {
-        
+        notificationCenter.getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .authorized {
+                print("Notifications are authorized")
+                
+                if (settings.soundSetting == .disabled) {
+                    print("Sound is disabled")
+                }
+            } else if settings.authorizationStatus == .denied {
+                print("Notifications have been denied")
+            } else {
+                print("Notifications authorization dialog hasn't been shown yet")
+            }
+        }
     }
     
     @IBAction func showNotification(_ sender: Any) {
