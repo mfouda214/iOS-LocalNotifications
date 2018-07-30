@@ -1,62 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5f7-JO-cOU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Notifications View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Setting-->
+        <scene sceneID="Bg4-kM-UlY">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="NotificationsViewController" customModule="LocalNotifications" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5f7-JO-cOU" customClass="ViewController" customModule="LocalNotifications" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="mra-O0-lDv"/>
+                        <viewControllerLayoutGuide type="bottom" id="HYF-ay-LT6"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="2gD-NG-OEj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="X2w-DV-uzx">
-                                <rect key="frame" x="52" y="289" width="272" height="90"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mIY-Ji-vQA">
+                                <rect key="frame" x="71" y="318.5" width="233" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="229" id="7mo-Tx-LNn"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="5f7-JO-cOU" eventType="valueChanged" id="vpQ-Si-huv"/>
+                                </connections>
+                            </slider>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNb-Y1-mER">
+                                <rect key="frame" x="73" y="353.5" width="62.5" height="20.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yoz-cj-hSM">
-                                        <rect key="frame" x="0.0" y="0.0" width="272" height="30"/>
-                                        <state key="normal" title="Request notifications authorization"/>
-                                        <connections>
-                                            <action selector="requestNotificationsAuthorization:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XRF-K5-1Tx"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLb-vd-f0Z">
-                                        <rect key="frame" x="0.0" y="30" width="272" height="30"/>
-                                        <state key="normal" title="Check notifications authorization status"/>
-                                        <connections>
-                                            <action selector="checkNotificationsAuthorizationStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Wk-qj-Vkl"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eM-df-HgX">
-                                        <rect key="frame" x="0.0" y="60" width="272" height="30"/>
-                                        <state key="normal" title="Show local notification"/>
-                                        <connections>
-                                            <action selector="showNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sa5-1r-rFY"/>
-                                        </connections>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delay: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TL6-gr-Vh9">
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nR1-K4-byM">
+                                        <rect key="frame" x="52" y="0.0" width="10.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RVx-ql-tM3">
+                                <rect key="frame" x="73" y="260.5" width="229" height="29"/>
+                                <segments>
+                                    <segment title="Audi"/>
+                                    <segment title="BMW"/>
+                                    <segment title="Tesla"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueChanged:" destination="5f7-JO-cOU" eventType="valueChanged" id="xnW-M0-bJ6"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GE5-Nw-vp1">
+                                <rect key="frame" x="72.5" y="414.5" width="229" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Set Notification">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="setNotificationTapped:" destination="5f7-JO-cOU" eventType="touchUpInside" id="7nf-Ay-wRQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="X2w-DV-uzx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7OH-3J-57r"/>
-                            <constraint firstItem="X2w-DV-uzx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t1A-Zv-5D2"/>
+                            <constraint firstItem="GE5-Nw-vp1" firstAttribute="top" secondItem="mIY-Ji-vQA" secondAttribute="bottom" constant="66" id="0z2-QG-fat"/>
+                            <constraint firstItem="mIY-Ji-vQA" firstAttribute="centerY" secondItem="2gD-NG-OEj" secondAttribute="centerY" id="6xX-eb-Eac"/>
+                            <constraint firstItem="mIY-Ji-vQA" firstAttribute="top" secondItem="uNb-Y1-mER" secondAttribute="bottom" constant="24.5" id="8wa-pP-4DJ"/>
+                            <constraint firstItem="RVx-ql-tM3" firstAttribute="centerX" secondItem="mIY-Ji-vQA" secondAttribute="centerX" id="Fng-Q3-qR7"/>
+                            <constraint firstItem="mIY-Ji-vQA" firstAttribute="centerX" secondItem="2gD-NG-OEj" secondAttribute="centerX" id="Usz-KM-iNO"/>
+                            <constraint firstItem="RVx-ql-tM3" firstAttribute="width" secondItem="mIY-Ji-vQA" secondAttribute="width" id="Z4w-HZ-lv8"/>
+                            <constraint firstItem="uNb-Y1-mER" firstAttribute="leading" secondItem="mIY-Ji-vQA" secondAttribute="leading" id="bcV-Ox-Rcb"/>
+                            <constraint firstItem="uNb-Y1-mER" firstAttribute="top" secondItem="mIY-Ji-vQA" secondAttribute="bottom" constant="5" id="iWu-fn-A5e"/>
+                            <constraint firstItem="GE5-Nw-vp1" firstAttribute="centerX" secondItem="mIY-Ji-vQA" secondAttribute="centerX" id="tDc-KS-XhX"/>
+                            <constraint firstItem="mIY-Ji-vQA" firstAttribute="top" secondItem="RVx-ql-tM3" secondAttribute="bottom" constant="114" id="u5F-yi-pPl">
+                                <variation key="heightClass=compact" constant="30"/>
+                            </constraint>
+                            <constraint firstItem="GE5-Nw-vp1" firstAttribute="width" secondItem="mIY-Ji-vQA" secondAttribute="width" id="uwb-0F-sbE"/>
+                            <constraint firstItem="uNb-Y1-mER" firstAttribute="centerX" secondItem="mIY-Ji-vQA" secondAttribute="centerX" id="zUl-pS-4EG"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="iWu-fn-A5e"/>
+                                <exclude reference="bcV-Ox-Rcb"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="8wa-pP-4DJ"/>
+                                <include reference="iWu-fn-A5e"/>
+                                <include reference="bcV-Ox-Rcb"/>
+                                <exclude reference="zUl-pS-4EG"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Setting" id="22W-jT-8Hz"/>
+                    <connections>
+                        <outlet property="delayValue" destination="nR1-K4-byM" id="VBI-Tp-zAL"/>
+                        <outlet property="segmentedControl" destination="RVx-ql-tM3" id="gH0-WY-CLJ"/>
+                        <outlet property="setNotificationButton" destination="GE5-Nw-vp1" id="lZN-iZ-iGf"/>
+                        <outlet property="slider" destination="mIY-Ji-vQA" id="LSt-fB-kOM"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GBA-uv-5bw" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1111.875" y="122.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Zx0-en-hy1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="87b-uW-8c8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eS1-zn-iK3">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5f7-JO-cOU" kind="relationship" relationship="rootViewController" id="ita-oj-h0L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aO1-MC-vDw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114.375" y="122.5"/>
         </scene>
     </scenes>
 </document>
