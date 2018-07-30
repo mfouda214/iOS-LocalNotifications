@@ -48,6 +48,20 @@ class NotificationsViewController: UIViewController {
     }
     
     @IBAction func showNotification(_ sender: Any) {
-
+        let content = UNMutableNotificationContent()
+        content.title = "Overdue Tasks"
+        content.body = "You have 5 overdue tasks"
+        content.sound = UNNotificationSound.default()
+        content.badge = 5
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "OverdueTasksNotification", content: content, trigger: trigger)
+        
+        notificationCenter.add(request, withCompletionHandler: { (error) in
+            if let error = error {
+                print("Couldn't add notification. Error: \(error)")
+            }
+        })
     }
 }
