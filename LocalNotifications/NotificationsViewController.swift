@@ -20,11 +20,19 @@ class NotificationsViewController: UIViewController {
     }
 
     @IBAction func requestNotificationsAuthorization(_ sender: Any) {
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge];
         
+        notificationCenter.requestAuthorization(options: options) { (granted, error) in
+            if granted {
+                print("Accepted permission.")
+            } else {
+                print("Did not accept permission.")
+            }
+        }
     }
     
     @IBAction func checkNotificationsAuthorizationStatus(_ sender: Any) {
-
+        
     }
     
     @IBAction func showNotification(_ sender: Any) {
